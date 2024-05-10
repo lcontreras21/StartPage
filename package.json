@@ -1,0 +1,23 @@
+{
+  "name": "startpage",
+  "version": "1.0.0",
+  "description": "Simple StartPage for Firefox",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcontreras21/StartPage.git"
+  },
+  "author": "lcontreras21",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lcontreras21/StartPage/issues"
+  },
+  "homepage": "https://github.com/lcontreras21/StartPage#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "jquery": "^3.7.1"
+  }
+}
