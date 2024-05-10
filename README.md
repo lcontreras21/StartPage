@@ -64,23 +64,17 @@ Have npm installed on your system :(
    ```sh
     npm install
    ```
-2. Change autoconfig.js to set StartPage as new Tab
+2. Clone files to set StartPage as new tab page
    ```sh
-    In /opt/firefox/firefox/defaults/pref/autoconfig.js, set the following:
-    pref("general.config.filename", "autoconfig.cfg");
-    pref("general.config.obscure_value", 0);
-    pref("general.config.sandbox_enabled", false);
-
-    Create new file /opt/firefox/firefox/mozilla.cfg and place
-    // first line is a comment
-    var {classes:Cc,interfaces:Ci,utils:Cu} = Components;
-    var newTabURL = "file:///home/stili/startpage/index.html";
-    aboutNewTabService = Cc["@mozilla.org/browser/aboutnewtab-service;1"].getService(Ci.nsIAboutNewTabService);
-    aboutNewTabService.newTabURL = newTabURL;
+    Need to find where Firefox is installed. In my popos setup, it's in /usr/lib/. In windows, it's in C://Program Files/
+    cp autoconfig.cfg /usr/lib/firefox/
+    cp autoconfig.js /user/lib/firefox/defaults/pref/
+    The URL in the autoconfig.cfg file might need to be changed depending on OS
    ```
 4. Set StartPage for Homepage and new windows
    ```js
-    Open Settings -> Select Home on the right -> Enter "file:///PATH_TO_STARTPAGE_REPO/index.html" in 'Homepage and new windows' section
+    Open Settings -> Select Home on the right -> Select Use Current Pages
+    Make sure to only have the new tab page open!
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
