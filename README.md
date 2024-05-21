@@ -36,6 +36,31 @@
   </ol>
 </details>
 
+<!-- ABOUT -->
+## About The Project 
+
+Firefox's default new tab and homepage were ugly to me. I wanted something that I could customize to my liking.  Built using Bootstrap and some jQuery, but I want to move away from that. 
+Using Firefox on Linux changes some of the hotkeys. For example, opening bookmarks library and toggling bookmarks tab are different. Swapping tabs is also different. Because of that, in the autoconfig.cfg file that gets copied over contains some code to revert that. You can now use CTR + i to navigate to different tabs. 
+
+Links: 
+* Firefox Page [Documentation](https://searchfox.org/mozilla-release/source/browser/base/content/browser-sets.inc)
+    - searching specifically for "key_selectTab1". Just above that is this chunk of code that changes the key binding if on Linux.
+```
+#ifdef XP_GNOME
+#define NUM_SELECT_TAB_MODIFIER alt
+#else
+#define NUM_SELECT_TAB_MODIFIER accel
+#endif
+```
+* Helpful Reddit [Post](https://www.reddit.com/r/firefox/comments/kilmm2/restore_ctrlshiftb_library_by_setting_configjs/)
+    - Only issue on that page is that it's a bit outdated. Replacing the Services part with some of the info from this [StackOverflow Post](https://superuser.com/questions/1271147/change-key-bindings-keyboard-shortcuts-in-firefox-57) fixes things
+
+There are extensions out there that do this type of thing but I thought it would be fun to do a little digging. It kind of was but it's such a rabbit-hole with all the different Firefox versions.
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Built With
 
 [![JQuery][JQuery.com]][JQuery-url]
@@ -66,7 +91,7 @@ Have npm installed on your system :(
    ```
 2. Clone files to set StartPage as new tab page
    ```sh
-    Need to find where Firefox is installed. In my popos setup, it's in /usr/lib/. In windows, it's in C://Program Files/
+    Need to find where Firefox is installed. In my popos setup, it is in /usr/lib/. In windows, it is in C://Program Files/
     cp autoconfig.cfg /usr/lib/firefox/
     cp autoconfig.js /user/lib/firefox/defaults/pref/
     The URL in the autoconfig.cfg file might need to be changed depending on OS
@@ -83,8 +108,6 @@ Have npm installed on your system :(
 ## Roadmap
 
 - [ ] Rebuild using Elm (no javascript and npm pog)
-
-See the [open issues](https://github.com/lcontreras21/StartPage/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
