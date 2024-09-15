@@ -1,3 +1,4 @@
+/* Main Page Styling */
 :root {
   --black_background: #0C131F;
   --item_blue: #2195fa;
@@ -6,74 +7,80 @@
 body {
 	background-color: var(--black_background);
 }
+
 /* Clock Styling */
-.info {
+.clock {
 	display: flex;
 	flex-direction: column;
-	margin-top: 140px;
 	line-height: 0.1;
 	text-align: center;
+    padding: 90px 0px;
 }
-#clock {
+.clock p {
 	font-size: 75px;
 	color: var(--item_blue);
 }
-/* Group Holder Styling */
+/* List Holder Styling */
 .lists {
 	display: flex;
 	flex-wrap: wrap;
 	vertical-align: top;
 	justify-content: center;
 }
-/* Group Styling */
+/* List Styling */
 @media all and (max-width:550px) {
-	.info
+	.clock
 	{
 		visibility: hidden;
 		margin: auto;
 	}
-	.group {
+	.list {
 		flex-direction: column;
 		width: auto;
 	}
 }
-.group {
+.list {
 	display: flex;
 	flex-direction: column;
 	padding: 50px;
     text-align: center;
 }
-/* Group: Title Styling */
+/* List: Title Styling */
 .list_title {
 	font-size: 35px;
 }
 /* TODO iterate through color assignment */
-.group:nth-child(1) .list_title {
+.list:nth-child(1) .list_title {
     color: #7739E3;
 }
-.group:nth-child(2) .list_title {
+.list:nth-child(2) .list_title {
     color: #22AB76;
 }
-.group:nth-child(3) .list_title {
+.list:nth-child(3) .list_title {
     color: #CF342B;
 }
-.group:nth-child(4) .list_title {
+.list:nth-child(4) .list_title {
     color: #00a3cc;
 }
-/* Group: Link Element Styling */
-.group_item {
+
+.list_content {
+    width: 250px;
+}
+
+/* List: Link Element Styling */
+.list_item {
     font-size: 23px;
 }
-.group_item:visited, .group_item:link, .group_item:active {
+.list_item:visited, .list_item:link, .list_item:active {
     color: var(--pale_yellow);;
     text-decoration: none;
     text-indent: 2px;
     line-height: 1.5;
 }
-.group_item:hover {
+.list_item:hover {
     color: var(--item_blue);;
 }
-/* Group: Dropdown Element Styling */
+/* List: Dropdown Element Styling */
 .btn, .btn.show, .btn.active {
     padding-left: 5px;
     color: var(--pale_yellow);;
@@ -82,8 +89,6 @@ body {
 .btn:hover {
     color: var(--item_blue);;
 }
-
-
 
 /* Dropdown Menu */
 .dropdown-menu {
