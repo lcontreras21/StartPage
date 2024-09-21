@@ -39,7 +39,7 @@
 <!-- ABOUT -->
 ## About The Project 
 
-Firefox's default new tab and homepage were ugly to me. I wanted something that I could customize to my liking.  Built using Bootstrap and some jQuery, but I want to move away from that. 
+Firefox's default new tab and homepage were ugly to me. I wanted something that I could customize to my liking.  Built using Bootstrap, but I want to move away from that. 
 Using Firefox on Linux changes some of the hotkeys. For example, opening bookmarks library and toggling bookmarks tab are different. Swapping tabs is also different. Because of that, in the autoconfig.cfg file that gets copied over contains some code to revert that. You can now use CTR + i to navigate to different tabs. 
 
 Links: 
@@ -63,7 +63,6 @@ There are extensions out there that do this type of thing but I thought it would
 
 ### Built With
 
-[![JQuery][JQuery.com]][JQuery-url]
 [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -122,7 +121,5 @@ Distributed under the MIT License.
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [test-sheild]: https://img.shields.io/badge/EZPZ-purple?logo=github&style=for-the-badge
 [test-url]: http://youtube.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com

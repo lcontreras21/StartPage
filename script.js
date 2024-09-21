@@ -2,7 +2,12 @@ function clock() {
 	var date = new Date();
 	var hours = ("0" + date.getHours()).slice(-2);
 	var minutes = ("0" + date.getMinutes()).slice(-2);
-    $('.clock p').html(hours + ':' + minutes);
+
+    // $('.clock p').html(hours + ':' + minutes);
+    var time = hours + ':' + minutes;
+    document.querySelector('.clock p').innerHTML = time;
+
+
 	setTimeout(clock, 500);
 }
 clock()
