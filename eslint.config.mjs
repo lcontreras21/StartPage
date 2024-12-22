@@ -1,4 +1,5 @@
 import globals from 'globals';
+import stylisticJs from '@stylistic/eslint-plugin-js';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
@@ -13,7 +14,9 @@ const compat = new FlatCompat({
 });
 
 export default [...compat.extends('eslint:recommended'), {
-  plugins: {},
+  plugins: {
+    '@stylistic/js': stylisticJs
+  },
 
   languageOptions: {
     globals: {
@@ -28,30 +31,30 @@ export default [...compat.extends('eslint:recommended'), {
     'no-console': 'warn',
     'block-scoped-var': 'warn',
     'dot-notation': 'warn',
-    'no-multi-spaces': 'warn',
     'no-unused-vars': 'warn',
-    'array-bracket-spacing': 'warn',
-    'brace-style': 'warn',
-    'comma-dangle': ['error', 'never'],
-    'comma-spacing': 'warn',
-    'eol-last': 'error',
 
-    indent: ['error', 2, {
+    '@stylistic/js/array-bracket-spacing': 'warn',
+    '@stylistic/js/brace-style': 'warn',
+    '@stylistic/js/no-multi-spaces': 'warn',
+    '@stylistic/js/comma-spacing': 'warn',
+    '@stylistic/js/indent': ['error', 2, {
       SwitchCase: 1
     }],
+    '@stylistic/js/comma-dangle': 'error',
+    '@stylistic/js/eol-last': 'error',
 
-    'key-spacing': 'warn',
-    'no-mixed-spaces-and-tabs': 'warn',
-    'no-trailing-spaces': 'warn',
+    '@stylistic/js/key-spacing': 'warn',
+    '@stylistic/js/no-mixed-spaces-and-tabs': 'warn',
+    '@stylistic/js/no-trailing-spaces': 'warn',
 
-    'quote-props': ['error', 'as-needed', {
+    '@stylistic/js/quote-props': ['error', 'as-needed', {
       keywords: true
     }],
 
-    quotes: ['warn', 'single'],
-    semi: ['error', 'always'],
+    '@stylistic/js/quotes': ['warn', 'single'],
+    '@stylistic/js/semi': ['error', 'always'],
     'space-before-blocks': 'warn',
-    'space-before-function-paren': 'warn',
+    'space-before-function-paren': ['warn', 'always'],
     'space-infix-ops': 'warn'
   }
 }];
