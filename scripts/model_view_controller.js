@@ -2,17 +2,35 @@ var startpage_service = {
   url: 'https://startpage_server.luiscontrerasorendain.com'
 };
 
-function get_lists () {
-  return fetch(startpage_service.url + '/api/v1/startpage').then(response => {
+async function get_lists () {
+  try {
+    const response = await fetch(startpage_service.url + '/api/v1/startpage');
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
-    return response.json();
-  // eslint-disable-next-line no-console
-  }).then(data => data).catch(error => console.error(error));
-
+    const data = await response.json();
+    return data;
+    // eslint-disable-next-line no-unused-vars
+  } catch (error) {
+    return [];
+  }
 }
 startpage_service.get_lists = get_lists;
+
+async function get_last_update () {
+  try {
+    const response = await fetch(startpage_service.url + '/api/v1/last_update');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  // eslint-disable-next-line no-unused-vars
+  } catch (error) {
+    return [];
+  }
+}
+startpage_service.get_last_update = get_last_update;
 
 class Model {
   constructor (lists) {
@@ -131,31 +149,29 @@ class Controller {
   }
 }
 
-startpage_service.get_lists().then(function (lists) {
-  // eslint-disable-next-line no-console
-  console.log(lists);
-  // eslint-disable-next-line no-unused-vars
-  const app = new Controller(new Model(lists), new View());
+function init (remote_timestamp) {
+  var saved_timestamp = localStorage.getItem('timestamp');
+
+  var promise;
+
+  if (remote_timestamp && remote_timestamp !== saved_timestamp) {
+    promise = startpage_service.get_lists();
+  } else {
+    var lists = JSON.parse(localStorage.getItem('lists')) || [];
+    promise = Promise.resolve(lists);
+  }
+
+  promise.then(function (lists) {
+    new Controller(new Model(lists), new View());
+    if (saved_timestamp !== remote_timestamp) {
+      localStorage.setItem('timestamp', remote_timestamp);
+      localStorage.setItem('lists', JSON.stringify(lists));
+    }
+  });
+}
+
+startpage_service.get_last_update().then(function (response) {
+  init(response.remote_timestamp);
+}, function () {
+  init(null);
 });
-
-
-
-//      // <div class="list">
-//              <!-- Loop through JSON payload-->
-//              <div class="list_title">
-//                  <p>TITLE</p>
-//              </div>
-//              <div class="list_content">
-//                  <!-- Create simple link -->
-//                  <div>
-//                      <a class="list_item" href="LINK">LINK_TEXT</a>
-//                  </div>
-//                  <!-- Create dropdown of links -->
-//                  <div class="dropdown">
-//                      <a class="btn dropdown-toggle list_item" type="button" data-bs-toggle="dropdown" aria-expanded="false">DROPDOWN_TEXT</a>
-//                      <ul class="dropdown-menu">
-//                          <li><a class="dropdown-item" href="DROPDOWN_LIST_LINK" target="_blank" rel="noopener noreferrer">DROPDOWN_LIST_TEXT</a></li>
-//                      </ul>
-//                  </div>
-//              </div>
-//      // </div>
