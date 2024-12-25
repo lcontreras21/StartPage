@@ -96,29 +96,27 @@ class View {
 
   create_dropdown_menu (list_item) {
     var parent = this.create_element('div', ['dropdown']);
-    var button = this.create_element('a', ['btn', 'dropdown-toggle', 'list_item']);
-    button.href = '#';
-    button.setAttribute('onClick', 'return false');
-    button.type = 'button';
-    button.setAttribute('data-bs-toggle', 'dropdown');
-    button.setAttribute('aria-expanded', 'false');
+    parent.setAttribute('tabindex', '1');
+    var button = this.create_element('a', ['dropdown-toggle', 'list_item']);
     button.innerText = list_item.item_title;
 
-    var ul = this.create_element('ul', ['dropdown-menu']);
+    var i_el = this.create_element('i', ['db2']);
+    i_el.setAttribute('tabindex', '1');
+
+    var dropdown = this.create_element('div', ['dropdown-menu']);
 
     for (var menu_item of list_item.dropdown_menu) {
-      var li = this.create_element('li', ['dropdown-item']);
-      var link = this.create_element('a');
+      var link = this.create_element('a', ['dropdown-item']);
       link.innerText = menu_item.dropdown_item;
       link.href = menu_item.link;
       link.setAttribute('target', '_blank');
       link.setAttribute('rel', 'noopener noreferrer');
-      li.appendChild(link);
-      ul.appendChild(li);
+      dropdown.appendChild(link);
     }
 
+    parent.appendChild(i_el);
     parent.appendChild(button);
-    parent.appendChild(ul);
+    parent.appendChild(dropdown);
     return parent;
   }
 
