@@ -1,34 +1,32 @@
+const timeout_controller = new AbortController();
+const signal = timeout_controller.signal;
+
+const timeoutId = setTimeout(() => timeout_controller.abort(), 300); // TODO: handle timeout when it succeeds?
+
 var startpage_service = {
   url: 'https://startpage_server.luiscontrerasorendain.com'
 };
 
+
 async function get_lists () {
-  try {
-    const response = await fetch(startpage_service.url + '/api/v1/startpage');
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const data = await response.json();
-    return data;
-    // eslint-disable-next-line no-unused-vars
-  } catch (error) {
-    return [];
+  const response = await fetch(startpage_service.url + '/api/v1/startpage', { signal });
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
   }
+  clearTimeout(timeoutId);
+  const data = await response.json();
+  return data;
 }
 startpage_service.get_lists = get_lists;
 
 async function get_last_update () {
-  try {
-    const response = await fetch(startpage_service.url + '/api/v1/last_update');
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const data = await response.json();
-    return data;
-  // eslint-disable-next-line no-unused-vars
-  } catch (error) {
-    return [];
+  const response = await fetch(startpage_service.url + '/api/v1/last_update', { signal });
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
   }
+  clearTimeout(timeoutId);
+  const data = await response.json();
+  return data;
 }
 startpage_service.get_last_update = get_last_update;
 
