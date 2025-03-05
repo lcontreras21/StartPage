@@ -146,10 +146,9 @@ class Controller {
 }
 
 function init (remote_timestamp) {
-  var saved_timestamp = localStorage.getItem('timestamp');
+  var saved_timestamp = localStorage.getItem('last_update');
 
   var promise;
-
   if (remote_timestamp && remote_timestamp !== saved_timestamp) {
     promise = startpage_service.get_lists();
   } else {
@@ -160,14 +159,14 @@ function init (remote_timestamp) {
   promise.then(function (lists) {
     new Controller(new Model(lists), new View());
     if (saved_timestamp !== remote_timestamp) {
-      localStorage.setItem('timestamp', remote_timestamp);
+      localStorage.setItem('last_update', remote_timestamp);
       localStorage.setItem('lists', JSON.stringify(lists));
     }
   });
 }
 
 startpage_service.get_last_update().then(function (response) {
-  init(response.remote_timestamp);
+  init(response.last_update);
 }, function () {
   init(null);
 });
