@@ -54,6 +54,8 @@ Links:
 ```
 * Helpful Reddit [Post](https://www.reddit.com/r/firefox/comments/kilmm2/restore_ctrlshiftb_library_by_setting_configjs/)
     - Only issue on that page is that it's a bit outdated. Replacing the Services part with some of the info from this [StackOverflow Post](https://superuser.com/questions/1271147/change-key-bindings-keyboard-shortcuts-in-firefox-57) fixes things
+* Another Helpful Reddit [Post](https://support.mozilla.org/mk/questions/1490993)
+    - This time about how to set new tab with Firefox 136
 
 There are extensions out there that do this type of thing but I thought it would be fun to do a little digging. It kind of was but it's such a rabbit-hole with all the different Firefox versions.
 
