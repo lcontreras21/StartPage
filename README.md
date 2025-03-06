@@ -39,7 +39,7 @@
 <!-- ABOUT -->
 ## About The Project 
 
-Firefox's default new tab and homepage were ugly to me. I wanted something that I could customize to my liking.  Built using Bootstrap, but I want to move away from that. 
+Firefox's default new tab and homepage were ugly to me. I wanted something that I could customize to my liking. Built using vanilla html/js/css. 
 Using Firefox on Linux changes some of the hotkeys. For example, opening bookmarks library and toggling bookmarks tab are different. Swapping tabs is also different. Because of that, in the autoconfig.cfg file that gets copied over contains some code to revert that. You can now use CTR + i to navigate to different tabs. 
 
 Links: 
@@ -54,6 +54,8 @@ Links:
 ```
 * Helpful Reddit [Post](https://www.reddit.com/r/firefox/comments/kilmm2/restore_ctrlshiftb_library_by_setting_configjs/)
     - Only issue on that page is that it's a bit outdated. Replacing the Services part with some of the info from this [StackOverflow Post](https://superuser.com/questions/1271147/change-key-bindings-keyboard-shortcuts-in-firefox-57) fixes things
+* Another Helpful Reddit [Post](https://support.mozilla.org/mk/questions/1490993)
+    - This time about how to set new tab with Firefox 136
 
 There are extensions out there that do this type of thing but I thought it would be fun to do a little digging. It kind of was but it's such a rabbit-hole with all the different Firefox versions.
 
@@ -62,8 +64,6 @@ There are extensions out there that do this type of thing but I thought it would
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
-
-[![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -106,7 +106,16 @@ Have npm installed on your system :(
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Rebuild using Elm (no javascript and npm pog)
+- [x] Create basic startpage using jquery and bootstrap
+- [x] Quit using jquery and use vanilla js
+- [x] Quit using bootstrap and use vanilla js/css
+- [x] Request items from API endpoint and build lists dynamically
+- [ ] Set colors dynamically depending on number of lists
+- [ ] Be able to add to or remove from list
+- [ ] Be able to set list title colors
+- [ ] Be able to resize clock element
+- [ ] Save firefox:about config
+- [ ] Rebuild using Elm? (no javascript and npm)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -121,5 +130,3 @@ Distributed under the MIT License.
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [test-sheild]: https://img.shields.io/badge/EZPZ-purple?logo=github&style=for-the-badge
 [test-url]: http://youtube.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com

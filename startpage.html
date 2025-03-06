@@ -7,103 +7,33 @@
 		<title>New Tab</title>
 
 		<!-- Stylesheets -->
-		<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" type="text/css" href="style.css">
 
 		<!-- Scripts -->
-		<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-		<script async type="text/javascript" src="script.js"></script>
+		<script async type="text/javascript" src="scripts/model_view_controller.js"></script>
+		<script async type="text/javascript" src="scripts/clock.js"></script>
+		<script async type="text/javascript" src="scripts/dropdown.js"></script>
 	</head>
 	<body>
 		<div class="clock">
 			<p><br></p>
 		</div>
-		<div class="lists">
-			<div class="Productivity list">
+		<div id="lists">
+			<div class="list">
+                <!-- Loop through JSON payload-->
                 <div class="list_title">
-                    <p>Productivity</p>
+                    <p>TITLE</p>
                 </div>
                 <div class="list_content">
+                    <!-- Create simple link -->
                     <div>
-                        <a class="list_item" href="https://github.com/lcontreras21">Github</a>
+                        <a class="list_item" href="LINK">LINK_TEXT</a>
                     </div>
-                    <div>
-                        <a class="list_item" href="https://www.linkedin.com/in/luis-contreras-orendain/">LinkedIn</a>
-                    </div>
-                    <div>
-                        <a class="list_item" href="https://clearlyenergy-inc.monday.com/my_work">Monday</a>
-                    </div>
+                    <!-- Create dropdown of links -->
                     <div class="dropdown">
-                        <a class="btn dropdown-toggle list_item" type="button" data-bs-toggle="dropdown" aria-expanded="false">Emails</a>
+                        <a class="btn dropdown-toggle list_item" type="button" data-bs-toggle="dropdown" aria-expanded="false">DROPDOWN_TEXT</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="https://mail.google.com/mail/u/4/#inbox" target="_blank" rel="noopener noreferrer">Work</a></li>
-                            <li><a class="dropdown-item" href="https://mail.google.com/mail/u/0/#inbox" target="_blank" rel="noopener noreferrer">Main</a></li>
-                            <li><a class="dropdown-item" href="https://mail.google.com/mail/u/1/#inbox" target="_blank" rel="noopener noreferrer">Other</a></li>
-                            <li><a class="dropdown-item" href="https://mail.google.com/mail/u/3/#inbox" target="_blank" rel="noopener noreferrer">Joint</a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown">
-                        <a class="btn dropdown-toggle list_item" type="button" data-bs-toggle="dropdown" aria-expanded="false">Calendars</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="https://calendar.google.com/calendar/u/4/#inbox" target="_blank" rel="noopener noreferrer">Work</a></li>
-                            <li><a class="dropdown-item" href="https://calendar.google.com/calendar/u/0/#inbox" target="_blank" rel="noopener noreferrer">Main</a></li>
-                        </ul>
-                    </div>
-                </div>
-			</div>
-			<div class="Entertainment list">
-				<div class="list_title">
-                    <p>Entertainment</p>
-                </div>
-                <div class="list_content">
-                    <div>
-                        <a class="list_item" href="https://www.youtube.com/">Youtube</a>
-                    </div>
-                    <div>
-                        <a class="list_item" href="https://www.twitch.tv/">Twitch</a>
-                    </div>
-                    <div class="dropdown">
-                        <a class="btn dropdown-toggle list_item" type="button" data-bs-toggle="dropdown" aria-expanded="false">Gaming</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="https://u.gg/lol/profile/na1/lucithegoosy-na1/overview">U.GG</a></li>
-                            <li><a class="dropdown-item" href="https://www.leagueofgraphs.com/summoner/na/lucithegoosy-NA1">League of Graphs</a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown">
-                        <a class="btn dropdown-toggle list_item" type="button" data-bs-toggle="dropdown" aria-expanded="false">Streaming</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="https://www.netflix.com/browse">Netflix</a></li>
-                            <li><a class="dropdown-item" href="https://www.disneyplus.com/home">Disney+</a></li>
-                            <li><a class="dropdown-item" href="https://nebula.tv/">Nebula</a></li>
-                            <li><a class="dropdown-item" href="https://aniwave.to/home">Aniwave</a></li>
-                            <li><a class="dropdown-item" href="https://hurawatch.bz/home">Hurawatch</a></li>
-                        </ul>
-                    </div>
-                </div>
-			</div>
-			<div class="Other list">
-                <div class="list_title">
-                    <p>Other</p>
-                </div>
-                <div class="list_content">
-                    <div>
-                        <a class="list_item" href="https://weather.com/weather/hourbyhour/l/Buffalo+NY?canonicalCityId=60f9a2ed365f6f8cebd4cf543557cb60f0d1129208900298e1e3e6fd704009b2">Weather</a>
-                    </div>
-                    <div class="dropdown">
-                        <a class="btn dropdown-toggle list_item" type="button" data-bs-toggle="dropdown" aria-expanded="false">Drives</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="https://drive.google.com/drive/u/4/my-drive">Work</a></li>
-                            <li><a class="dropdown-item" href="https://drive.google.com/drive/u/0/my-drive">Main</a></li>
-                            <li><a class="dropdown-item" href="https://drive.google.com/drive/u/3/my-drive">Joint</a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown">
-                        <a class="btn dropdown-toggle list_item" type="button" data-bs-toggle="dropdown" aria-expanded="false">Distractions</a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="https://www.reddit.com/">Reddit</a></li>
-                            <li><a class="dropdown-item" href="https://www.twitter.com">Twitter</a></li>
-                            <li><a class="dropdown-item" href="https://www.chess.com/home">Chess</a></li>
-                            <li><a class="dropdown-item" href="https://www.duolingo.com/learn">Duolingo</a></li>
+                            <li class="dropdown-item"><a href="DROPDOWN_LIST_LINK" target="_blank" rel="noopener noreferrer">DROPDOWN_LIST_TEXT</a></li>
                         </ul>
                     </div>
                 </div>
