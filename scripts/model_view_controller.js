@@ -4,7 +4,7 @@ const signal = timeout_controller.signal;
 const timeoutId = setTimeout(() => timeout_controller.abort(), 300); // TODO: handle timeout when it succeeds?
 
 var startpage_service = {
-  url: 'https://startpage_server.luiscontrerasorendain.com'
+  url: 'https://startpage_server.therainbowconnection.cloud'
 };
 
 
