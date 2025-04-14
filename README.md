@@ -40,7 +40,7 @@
 ## About The Project 
 
 Firefox's default new tab and homepage were ugly to me. I wanted something that I could customize to my liking. Built using vanilla html/js/css. 
-Using Firefox on Linux changes some of the hotkeys. For example, opening bookmarks library and toggling bookmarks tab are different. Swapping tabs is also different. Because of that, in the autoconfig.cfg file that gets copied over contains some code to revert that. You can now use CTR + i to navigate to different tabs. 
+Using Firefox on Linux changes some of the hotkeys. For example, opening bookmarks library and toggling bookmarks tab are different. Swapping tabs is also different. Because of that, in the UserChrome.js file that gets copied over contains some code to revert that. You can now use CTR + i to navigate to different tabs. 
 
 Links: 
 * Firefox Page [Documentation](https://searchfox.org/mozilla-release/source/browser/base/content/browser-sets.inc)
@@ -52,10 +52,15 @@ Links:
 #define NUM_SELECT_TAB_MODIFIER accel
 #endif
 ```
-* Helpful Reddit [Post](https://www.reddit.com/r/firefox/comments/kilmm2/restore_ctrlshiftb_library_by_setting_configjs/)
+* Helpful Reddit [Post](https://www.reddit.com/r/firefox/comments/kilmm2/restore_ctrlshiftb_library_by_setting_configjs/) for modifying keybindings
     - Only issue on that page is that it's a bit outdated. Replacing the Services part with some of the info from this [StackOverflow Post](https://superuser.com/questions/1271147/change-key-bindings-keyboard-shortcuts-in-firefox-57) fixes things
-* Another Helpful Reddit [Post](https://support.mozilla.org/mk/questions/1490993)
-    - This time about how to set new tab with Firefox 136
+* Mozilla Post [Post](https://support.mozilla.org/mk/questions/1490993) for changing new tab in Firefox 136
+* Userchrome.js [Github](https://github.com/AveYo/fox/blob/main/UserChrome.js) that I took some code from
+    - Firefox 136 changed how gbrowser works. Now needs to be wrapped in async/await 
+    - Basically copied the UC (user-chrome) config setup, the preamble, and the async/await setup
+* Firefox Module Documentation [Link](https://firefox-source-docs.mozilla.org/jsloader/system-modules.html)
+* Firefox Console Documentation [Link](https://firefox-source-docs.mozilla.org/devtools-user/browser_console/index.html)
+    - Userchrome.js logs the output of implementing the UCs into this special console
 
 There are extensions out there that do this type of thing but I thought it would be fun to do a little digging. It kind of was but it's such a rabbit-hole with all the different Firefox versions.
 
@@ -91,7 +96,7 @@ Have npm installed on your system :(
 2. Clone files to set StartPage as new tab page
    ```sh
     Need to find where Firefox is installed. In my popos setup, it is in /usr/lib/. In windows, it is in C://Program Files/
-    cp autoconfig.cfg /usr/lib/firefox/
+    cp UserChrome.js /usr/lib/firefox/
     cp autoconfig.js /user/lib/firefox/defaults/pref/
     The URL in the autoconfig.cfg file might need to be changed depending on OS
    ```
