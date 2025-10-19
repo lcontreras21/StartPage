@@ -1,3 +1,5 @@
+@import "./colors.css";
+
 /* Load my own Font */
 @font-face {
   font-family: 'Roboto';
@@ -11,15 +13,8 @@ body {
   font-size: 48px;
 }
 
-/* Styling Variables */
-:root {
-  --black_background: #0C131F;
-  --item_blue: #2195fa;
-  --pale_yellow: #ecf0c1e6;
-}
-
 body {
-	background-color: var(--black_background);
+	background-color: var(--ctp-frappe-base);
 }
 
 /* Clock Styling */
@@ -33,7 +28,7 @@ body {
 
 .clock p {
 	font-size: 75px;
-	color: var(--item_blue);
+	color: var(--ctp-frappe-mauve);
 }
 
 
@@ -63,33 +58,16 @@ body {
     flex: 1;
 }
 
-/* TODO iterate through color assignment */
-.list:nth-child(1) .list_title {
-    color: #7739E3;
-}
-
-.list:nth-child(2) .list_title {
-    color: #22AB76;
-}
-
-.list:nth-child(3) .list_title {
-    color: #CF342B;
-}
-
-.list:nth-child(4) .list_title {
-    color: #00a3cc;
-}
-
 /* List: Link Element Styling */
 .list_item:visited, .list_item:link, .list_item:active {
-    color: var(--pale_yellow);
+    color: var(--ctp-frappe-text);
     text-decoration: none;
     text-indent: 2px;
     line-height: 1.5;
 }
 
 .list_item:hover {
-    color: var(--item_blue);
+	color: var(--ctp-frappe-lavender);
 }
 
 /* https://jsfiddle.net/8evtxnsL/ */
@@ -101,7 +79,7 @@ body {
 }
 
 .dropdown-toggle {
-  color: var(--pale_yellow);
+  color: var(--ctp-frappe-text);
   cursor: pointer;
   /* transition: 0.35s ease-out; */
   text-decoration: none;
@@ -130,17 +108,17 @@ body {
 }
 
 .dropdown-item {
-  color: black;
+  color: var(--ctp-frappe-text);
   padding: 12px 16px;
   display: block;
   text-decoration: none;
   width: 50%;
   margin: auto;
-  background-color: white;
+  background-color: var(--ctp-frappe-overlay0);
   font-size: 30px;
 }
 .dropdown-item:hover {
-  background-color: #eaeaea;
+  background-color: var(--ctp-frappe-overlay1);
   width: 50%;
   margin: auto;
 }
