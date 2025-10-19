@@ -1,34 +1,43 @@
-function DropdownToggler () {
+document.addEventListener('click', (e) => {
+  const target = e.target;
 
-  // Listen to ALL (!) click events to also catch clicks OUTSIDE the dropdowns
-  document.addEventListener('click', function (e) {
-    if (e.target.closest('.dropdown')) {
-      closeOthers(e.target.parentElement.querySelector('.dropdown-menu'));
-      handleClick(e.target.parentElement.querySelector('.dropdown-menu'));
-    } else {
-      closeOthers(null);
-    }
-  });
+  if (target.closest('.dropdown-toggle')) {
+    e.preventDefault();
+    const toggle = target.closest('.dropdown-toggle');
+    const dropdown = toggle.closest('.dropdown');
+    const isExpanded = dropdown.classList.contains('expanded');
 
-  // Add or remove 'expanded' CSS class, depending on the current situation
-  function handleClick (dropdown) {
-    if (dropdown.classList.contains('expanded')) {
-      dropdown.classList.remove('expanded');
-    } else {
-      dropdown.classList.add('expanded');
-    }
-  }
-
-  // Close all dropdowns except the one that gets passed as the element parameter
-  // Note that we may also pass null in order to close ALL dropdowns
-  function closeOthers (element) {
-    document.querySelectorAll('.dropdown > .dropdown-menu').forEach(link => {
-      if (element != link) {
-        link.classList.remove('expanded');
+    document.querySelectorAll('.dropdown.expanded').forEach(otherDropdown => {
+      if (otherDropdown !== dropdown) {
+        otherDropdown.classList.remove('expanded');
+        otherDropdown.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
       }
     });
+
+    dropdown.classList.toggle('expanded', !isExpanded);
+    toggle.setAttribute('aria-expanded', !isExpanded);
+    return;
   }
 
-}
+  if (target.closest('.db2')) {
+    const mask = target.closest('.db2');
+    const dropdown = mask.closest('.dropdown');
+    const toggle = dropdown.querySelector('.dropdown-toggle');
 
-document.addEventListener('DOMContentLoaded', DropdownToggler);
+    dropdown.classList.remove('expanded');
+    toggle.setAttribute('aria-expanded', 'false');
+    return;
+  }
+
+  if (target.closest('.dropdown-menu')) {
+    if (target.classList.contains('dropdown-item')) {
+      return;
+    }
+    return;
+  }
+
+  document.querySelectorAll('.dropdown.expanded').forEach(dropdown => {
+    dropdown.classList.remove('expanded');
+    dropdown.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+  });
+});

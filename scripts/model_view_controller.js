@@ -109,8 +109,8 @@ class View {
       var link = this.create_element('a', ['dropdown-item']);
       link.innerText = menu_item.dropdown_item;
       link.href = menu_item.link;
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
+      // link.setAttribute('target', '_blank');
+      // link.setAttribute('rel', 'noopener noreferrer');
       dropdown.appendChild(link);
     }
 
